@@ -74,12 +74,13 @@ void paketYuksekligiHesapla() {
     cin >> levhaGenisligi;
 
     // Birimlerin dönüştürülmesi
-    ozkutle *= 1000000; // gr/cm^3'ü kg/m^3'e dönüştürmek için
-    levhaBoyu *= 0.001; // mm'yi m'ye dönüştürmek için
-    levhaGenisligi *= 0.001; // mm'yi m'ye dönüştürmek için
+    ozkutle *= 1000;   // gr/cm^3'ü kg/m^3'e dönüştürmek için
+    levhaBoyu *= 0.001;       // mm'yi m'ye dönüştürmek için
+    levhaGenisligi *= 0.001;  // mm'yi m'ye dönüştürmek için
 
-    // Paket yüksekliğinin hesaplanması
-    paketYuksekligi = paketAgirligi / (ozkutle * levhaBoyu * levhaGenisligi) * 1000000;
+    // Paket yüksekliğinin hesaplanması (metre cinsinden)
+    paketYuksekligi = paketAgirligi / (ozkutle * levhaBoyu * levhaGenisligi);
+    paketYuksekligi *= 1000;  // mm cinsine dönüştürme
 
     // Sonucun yazdırılması
     cout << "Paket yüksekliği: " << paketYuksekligi << " mm" << endl;
